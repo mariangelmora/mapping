@@ -12,8 +12,11 @@ fetch(url)
   .then(response => response.json())
   .then(data => {
     function getMarkerSize(magnitude) {
-      return magnitude * 5; // Adjust multiplier for better visualization
+      if (magnitude === 0){
+      return 1; // Adjust multiplier for better visualization
     }
+    return magnitude * 4;
+  }
 
     function getMarkerColor(depth) {
       if (depth < 30) {
@@ -36,9 +39,11 @@ fetch(url)
 
       L.circleMarker([coordinates[1], coordinates[0]], {
         radius: size,
-        color: 'black', // Border color of the marker
+        color: 'black', 
         fillColor: color,
-        fillOpacity: 0.7
+        fillOpacity: 1,
+        stroke: true,
+        weight: 0.5
       }).addTo(map);
     });
 
