@@ -4,7 +4,7 @@ const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significa
 // Create a map 
 const map = L.map('map', {
   center: [
-    40.5, -94.5
+    40.5, -95
   ],
   zoom: 3
 });
@@ -68,7 +68,7 @@ function getMarkerColor(depth) {
   }).addTo(map);
 
   let legend = L.control({
-    position: 'buttonright'
+    position: 'bottomright'
   });
 
   legend.onAdd = function () {
@@ -92,4 +92,3 @@ function getMarkerColor(depth) {
     
   legend.addTo(map);
 });
-
